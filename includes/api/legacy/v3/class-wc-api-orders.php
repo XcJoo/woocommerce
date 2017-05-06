@@ -244,6 +244,7 @@ class WC_API_Orders extends WC_API_Resource {
 			);
 
 			if ( in_array( 'products', $expand ) ) {
+				$product_id = $item->get_variation_id() ? $item->get_variation_id() : $item->get_product_id();
 				$_product_data = WC()->api->WC_API_Products->get_product( $product_id );
 
 				if ( isset( $_product_data['product'] ) ) {
